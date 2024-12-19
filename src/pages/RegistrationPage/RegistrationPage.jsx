@@ -8,8 +8,9 @@ import Input from "../../components/Input/Input.jsx";
 import Button from "../../components/Button/Button.jsx";
 import {useInput} from "../../hooks/inputHooks.js";
 import Paragraph from "../../components/Paragraph/Paragraph.jsx";
-const RegistrationPage = (type = 'PARENT') => {
+const RegistrationPage = ({type = 'PARENT'}) => {
     const navigate = useNavigate();
+    console.log(type);
 
     const fcs = useInput('',{isEmpty: true,maxLength: 40,isFcs: true});
     const birthDate = useInput('',{isEmpty: true,maxLength: 20});
