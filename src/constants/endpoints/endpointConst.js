@@ -7,11 +7,11 @@ const AUTH_LOGOUT = "/auth/logout";
 const BALANCE_PARENT = "/balance/parent";
 const BALANCE_CHILD = "/balance/child";
 
-const HISTORY_ALL = "/transactions/history";
-const HISTORY_LAST = "/transactions/last";
+const HISTORY_ALL = "/transaction/history";
+const HISTORY_LAST = "/transaction/last";
 
 const TRANSACTION_PAY = '/transaction/pay';
-const TRANSACTION_TRANSFER_CHILD = '/transactions/transfer';
+const TRANSACTION_TRANSFER_CHILD = '/transaction/transfer';
 
 const PARENT_SALARY = "/parent/salary";
 const PARENT_NEWCHILD = "/parent/new-child";
