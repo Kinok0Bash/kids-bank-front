@@ -1,8 +1,18 @@
 .operationHistory {
   flex-grow: 1;
   row-gap: 24px;
+  display: flex;
+  flex-direction: column;
   overflow: scroll;
 
-  &__list {
+  &-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-item__leftPart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

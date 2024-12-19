@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import api from "../services/axios/api.js";
 import {
-    AUTH_REG, BALANCE_CHILD,
-    BALANCE_PARENT, HISTORY_ALL, HISTORY_LAST, PARENT_NEWCHILD, PARENT_SALARY
+    BALANCE_CHILD,
+    BALANCE_PARENT, HISTORY_ALL, HISTORY_LAST, PARENT_SALARY
 } from "../constants/endpoints/endpointConst.js";
 
 class AccountStore {
@@ -45,9 +45,9 @@ class AccountStore {
     getLastOperations = async () => {
         let errorMessage;
         try {
-            const response = await api.get(BALANCE_CHILD);
+            const response = await api.get(HISTORY_LAST);
             runInAction(() => {
-                this.childBalance = response.data.balance;
+                this.transactions = response.data;
             });
         } catch(err) {
             errorMessage = err.response?.data?.message;

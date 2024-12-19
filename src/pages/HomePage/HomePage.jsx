@@ -48,22 +48,23 @@ const HomePage = () => {
                     </Title>
                     <RightArrow/>
                 </div>
-                <OperationHistory />
+                <OperationHistory/>
             </div>
-            {AuthStore.userData.role === 'PARENT' ?
                 <div className={'HomePage__buttons'}>
-                    {AuthStore.userData.isGetKid && <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/childAccount')}>
-                        <Paragraph type={'white'} level={2}>Перейти к счету ребенка</Paragraph>
-                    </Button>}
-                    <Button type={'main'} style={'green'} className={'HomePage__button'} onClick={handlerSalary}>
-                        <Paragraph type={'white'} level={2}>Получить зарплату</Paragraph>
-                    </Button>
-                </div> :
-                <Button type={'main'} style={'dark'} className={'HomePage__payment'} onClick={() => nav('/pay')}>
-                    <Paragraph type={'white'} level={2}>Оплата</Paragraph>
-                </Button>
-            }
-
+                    {AuthStore.userData.role === 'PARENT' ?
+                        (AuthStore.userData.isGetKid && <>
+                            <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/childAccount')}>
+                                <Paragraph type={'white'} level={2}>Перейти к счету ребенка</Paragraph>
+                            </Button>
+                            <Button type={'main'} style={'green'} className={'HomePage__button'} onClick={handlerSalary}>
+                                <Paragraph type={'white'} level={2}>Получить зарплату</Paragraph>
+                            </Button>
+                        </>) : (
+                            <Button type={'main'} style={'dark'} className={'HomePage__payment'} onClick={() => nav('/pay')}>
+                                <Paragraph type={'white'} level={2}>Оплата</Paragraph>
+                            </Button>)
+                    }
+                </div>
         </div>
     )
 }

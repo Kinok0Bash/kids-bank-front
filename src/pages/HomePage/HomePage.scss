@@ -3,11 +3,14 @@
   row-gap: 20px;
   flex-grow: 1;
   display: flex;
+  position: relative;
   flex-direction: column;
 
   &__buttons {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: 0;
     width: 100%;
     row-gap: 10px;
   }
@@ -15,6 +18,8 @@
   &__history {
     flex-grow: 1;
     display: flex;
+    row-gap: 24px;
+    max-height: 348px;
     flex-direction: column;
   }
 

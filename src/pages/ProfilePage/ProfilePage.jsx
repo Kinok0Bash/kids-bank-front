@@ -21,9 +21,11 @@ const ProfilePage = () => {
                     <Paragraph level={2} type={'default'}>Город: {AuthStore.userData.city}</Paragraph>
                 </div>
                 <div className={'ProfilePage__buttons'}>
-                    {!AuthStore.userData.isGetChild && AuthStore.userData.role === 'PARENT' ? <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/profile/new-child')}>
-                        <Paragraph type={'white'} level={2}>Добавить ребенка</Paragraph>
-                    </Button> : null}
+                    {!AuthStore.userData.isGetKid && AuthStore.userData.role === 'PARENT' ?
+                        <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/profile/new-child')}>
+                            <Paragraph type={'white'} level={2}>Добавить ребенка</Paragraph>
+                        </Button> : null
+                    }
                     <Button type={'main'} style={'red'} className={'HomePage__button'} onClick={AuthStore.logout}>
                         <Paragraph type={'white'} level={2}>Выйти</Paragraph>
                     </Button>

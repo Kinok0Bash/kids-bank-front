@@ -1,0 +1,27 @@
+.HistoryPage {
+  width: 100%;
+  row-gap: 20px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  &__title {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+  }
+  &__accept {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+  }
+  .operationHistory {
+    width: 100%;
+  }
+
+
+}

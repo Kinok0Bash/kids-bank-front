@@ -1,27 +1,27 @@
-import Title from "../Title/Title.jsx";
 import {observer} from "mobx-react-lite";
 import './OperationHistory.scss';
-import RightArrow from "../../assets/icons/Base/RightArrow.jsx";
 import {useEffect} from "react";
 import AccountStore from "../../store/AccountStore..js";
+import HistoryItem from "./HistoryItem.jsx";
+import LoaderStore from "../../store/LoaderStore.js";
 
-const OperationHistory = (type) => {
-    // useEffect(() => {
-    //     async function fetch() {
-    //         await AccountStore.getAllOperations();
-    //     }
-    //
-    //     fetch();
-    // }, [])
+const OperationHistory = ({type = 'LAST'}) => {
+    useEffect(() => {
+        async function fetch() {
+            LoaderStore.showLocalLoader();
+            if(type === 'LAST') await AccountStore.getLastOperations();
+            else await AccountStore.getAllOperations();
+            LoaderStore.hideLocalLoader();
+        }
+        fetch();
+    }, [])
 
     return (
-        <section className={'operationHistory'}>
-                {AccountStore.transactions.map((item) => {
-                    return (
-                        <>Хуй</>
-                    )
-                })}
-        </section>
+        <ul className={'operationHistory'}>
+                {[...AccountStore.transactions].reverse().map((item) => (
+                    <HistoryItem {...item} />
+                ))}
+        </ul>
     )
 }
 

@@ -9,6 +9,7 @@ import ProfilePage from "../../pages/ProfilePage/ProfilePage.jsx";
 import OperationResultPage from "../../pages/OperationResultPage/OperationResultPage.jsx";
 import ChildAccountPage from "../../pages/childAccountPage/ChildAccountPage.jsx";
 import ChildTransferPage from "../../pages/childTransferPage/ChildTransferPage.jsx";
+import HistoryPage from "../../pages/HistoryPage/HistoryPage.jsx";
 
 const AppRouting = () => {
     return (
@@ -22,6 +23,7 @@ const AppRouting = () => {
                     <Route path="/profile/new-child" element={<RegistrationPage type={'CHILD'}/>}/>
                     <Route path={'/childAccount'} element={<ChildAccountPage />}/>
                     <Route path={'/childTransfer'} element={<ChildTransferPage />}/>
+                    <Route path={'/history'} element={<HistoryPage />}/>
                 </Route>
                 <Route path="/auth/registration" element={<RegistrationPage />}/>
                 <Route path="/auth/login" element={<LoginPage />}/>
