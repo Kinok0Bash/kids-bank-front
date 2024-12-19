@@ -39,7 +39,7 @@ const HomePage = () => {
             <Header />
             <Account type={AuthStore.userData.role}/>
             <div className={"HomePage__history HomePage-history"}>
-                <div className="HomePage-history__header">
+                <div className="HomePage-history__header" onClick={() => nav('/history')}>
                     <Title level={3} type={'default'}>
                         {AuthStore.userData.role === 'PARENT' ?
                             'История операций ребенка':

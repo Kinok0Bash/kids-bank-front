@@ -16,7 +16,7 @@ const HistoryPage = () => {
             </Paragraph>
             <OperationHistory type={'ALL'}/>
 
-            <Button type={'main'} style={'dark'} className={'HistoryPage__accept'} onClick={() => nav('/childAccount')}>
+            <Button type={'main'} style={'dark'} className={'HistoryPage__accept'} onClick={() => nav('/')}>
                 <Paragraph type={'white'} level={2}>Хорошо</Paragraph>
             </Button>
         </div>
