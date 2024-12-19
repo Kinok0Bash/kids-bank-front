@@ -1,0 +1,38 @@
+.button {
+  padding: 20px 24px;
+  border-radius: 20px;
+  transition: .2s;
+  display: flex;
+  justify-content: center;
+
+  &_dark {
+    background-color: var(--dark);
+    box-shadow: 0 0 0 2px var(--dark);
+    &:hover{
+      opacity: .8;
+    }
+  }
+  &_red {
+    background-color: var(--red);
+    &:hover{
+      opacity: .8;
+    }
+  }
+  &_green {
+    background-color: var(--green);
+    &:hover{
+      opacity: .8;
+    }
+  }
+  &_full-width {
+    width: 100%;
+  }
+  &:disabled {
+    p {
+      color: var(--dark-gray);
+    }
+    opacity: .6;
+    background-color: var(--light-gray);
+  }
+
+}

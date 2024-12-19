@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+  .rightArrow-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
