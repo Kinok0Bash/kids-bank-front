@@ -1,8 +1,9 @@
 import {observer} from "mobx-react-lite";
-import AccountStore from "../../../store/AccountStore..js";
+import AccountStore from "/src/store/AccountStore..js";
 import './Account.scss';
-import Title from "../../../components/Title/Title.jsx";
-import Paragraph from "../../../components/Paragraph/Paragraph.jsx";
+import Paragraph from "/src/components/Paragraph/Paragraph.jsx";
+import bg from "/src/assets/img/account-bg.png";
+import {amountFormatter} from "../../utils/amountFormatter.js";
 
 const Account = ({type}) => {
     const balance = type === 'PARENT' ? AccountStore.parentBalance : AccountStore.childBalance;
@@ -16,9 +17,10 @@ const Account = ({type}) => {
                     }
                 </Paragraph>
                 <Paragraph level={5} type={'default'} className={'account__balance'}>
-                    {balance}
+                    {amountFormatter(balance)}
                 </Paragraph>
             </div>
+            <img className={"account__bg"} src={bg}/>
         </div>
     )
 }

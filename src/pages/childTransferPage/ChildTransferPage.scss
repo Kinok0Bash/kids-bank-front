@@ -1,0 +1,40 @@
+.childTransferPage {
+  width: 100%;
+  row-gap: 60px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+
+  &__header {
+    width: 100%;
+    column-gap: 100px;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    svg {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .leftArrow-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .account {
+    width: 100%;
+  }
+
+  &__transfer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+
+
+}

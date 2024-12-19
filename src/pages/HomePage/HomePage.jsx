@@ -3,7 +3,7 @@ import './HomePage.scss';
 import {useEffect} from "react";
 import AuthStore from "../../store/AuthStore.js";
 import AccountStore from "../../store/AccountStore..js";
-import Account from "./components/Account.jsx";
+import Account from "/src/components/Account/Account.jsx";
 import OperationHistory from "../../components/OperationHistory/OperationHistory.jsx";
 import Button from "../../components/Button/Button.jsx";
 import Paragraph from "../../components/Paragraph/Paragraph.jsx";
@@ -34,10 +34,6 @@ const HomePage = () => {
         fetch();
     }, [])
 
-    async function fetch() {
-        await AccountStore.getAllOperations();
-    }
-
     return (
         <div className={'HomePage'}>
             <Header />
@@ -56,7 +52,7 @@ const HomePage = () => {
             </div>
             {AuthStore.userData.role === 'PARENT' ?
                 <div className={'HomePage__buttons'}>
-                    <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/pay')}>
+                    <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/childAccount')}>
                         <Paragraph type={'white'} level={2}>Перейти к счету ребенка</Paragraph>
                     </Button>
                     <Button type={'main'} style={'green'} className={'HomePage__button'} onClick={handlerSalary}>

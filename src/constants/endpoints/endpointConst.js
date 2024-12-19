@@ -11,8 +11,7 @@ const HISTORY_ALL = "/transactions/history";
 const HISTORY_LAST = "/transactions/last";
 
 const TRANSACTION_PAY = '/transaction/pay';
-
-const TRANSACTION_TRANSFER = '/transaction/transfer';
+const TRANSACTION_TRANSFER_CHILD = '/transactions/transfer';
 
 const PARENT_SALARY = "/parent/salary";
 const PARENT_NEWCHILD = "/parent/new-child";
@@ -28,7 +27,7 @@ export {
     HISTORY_ALL,
     HISTORY_LAST,
     TRANSACTION_PAY,
-    TRANSACTION_TRANSFER,
+    TRANSACTION_TRANSFER_CHILD,
     PARENT_SALARY,
     PARENT_NEWCHILD
 }

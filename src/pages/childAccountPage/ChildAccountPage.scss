@@ -1,0 +1,32 @@
+.childAccountPage {
+  width: 100%;
+  row-gap: 30px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  &__header {
+    width: 100%;
+    column-gap: 100px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    svg {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .leftArrow-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .account {
+    width: 100%;
+  }
+
+
+}

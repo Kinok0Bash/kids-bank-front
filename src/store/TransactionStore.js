@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import api from "../services/axios/api.js";
 import {
-    BALANCE_PARENT, HISTORY_ALL, TRANSACTION_PAY
+    HISTORY_ALL, TRANSACTION_PAY, TRANSACTION_TRANSFER_CHILD
 } from "../constants/endpoints/endpointConst.js";
 
 class TransactionStore {
@@ -29,17 +29,16 @@ class TransactionStore {
         }
         return errorMessage || response?.data?.status;
     }
-    getBalanceChild = async () => {
+
+    transferToChild = async (amount) => {
         let errorMessage;
+        let response;
         try {
-            const response = await api.get(BALANCE_CHILD);
-            runInAction(() => {
-                this.childBalance = response.data.balance;
-            });
+            response = await api.post(TRANSACTION_TRANSFER_CHILD, {sum: amount});
         } catch(err) {
             errorMessage = err.response?.data?.message;
         }
-        return errorMessage || null;
+        return errorMessage || response;
     }
 
     getLastOperations = async () => {
@@ -67,5 +66,7 @@ class TransactionStore {
         }
         return errorMessage || null;
     }
+
+
 }
 export default new TransactionStore();

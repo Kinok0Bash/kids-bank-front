@@ -7,6 +7,8 @@ import PrivateRoute from "../PrivateRoute.jsx";
 import PayPage from "../../pages/PayPage/PayPage.jsx";
 import ProfilePage from "../../pages/ProfilePage/ProfilePage.jsx";
 import OperationResultPage from "../../pages/OperationResultPage/OperationResultPage.jsx";
+import ChildAccountPage from "../../pages/childAccountPage/ChildAccountPage.jsx";
+import ChildTransferPage from "../../pages/childTransferPage/ChildTransferPage.jsx";
 
 const AppRouting = () => {
     return (
@@ -18,6 +20,8 @@ const AppRouting = () => {
                     <Route path={"/profile"} element={<ProfilePage/>} />
                     <Route path={'/pay'} element={<PayPage/>}/>
                     <Route path="/profile/new-child" element={<RegistrationPage type={'CHILD'}/>}/>
+                    <Route path={'/childAccount'} element={<ChildAccountPage />}/>
+                    <Route path={'/childTransfer'} element={<ChildTransferPage />}/>
                 </Route>
                 <Route path="/auth/registration" element={<RegistrationPage />}/>
                 <Route path="/auth/login" element={<LoginPage />}/>

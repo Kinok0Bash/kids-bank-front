@@ -3,6 +3,8 @@
   padding: 18px 16px;
   border-radius: 26px;
   background: linear-gradient(-165deg,#EBD8FF 0%, rgba(207,186,255,.67) 37%,rgba(230,160,234,.47) 69%,#FEFDFF);
+  position: relative;
+  overflow: hidden;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -10,5 +12,13 @@
       font-weight: 500;
     }
 
+  }
+
+  &__bg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    opacity: .3;
+    transform: translateX(-50%);
   }
 }
