@@ -34,7 +34,7 @@ class TransactionStore {
         let errorMessage;
         let response;
         try {
-            response = await api.post(TRANSACTION_TRANSFER_CHILD, {sum: amount});
+            response = await api.put(TRANSACTION_TRANSFER_CHILD, {sum: amount});
         } catch(err) {
             errorMessage = err.response?.data?.message;
         }

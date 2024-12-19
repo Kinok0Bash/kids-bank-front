@@ -52,9 +52,9 @@ const HomePage = () => {
             </div>
             {AuthStore.userData.role === 'PARENT' ?
                 <div className={'HomePage__buttons'}>
-                    <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/childAccount')}>
+                    {AuthStore.userData.isGetKid && <Button type={'main'} style={'dark'} className={'HomePage__button'} onClick={() => nav('/childAccount')}>
                         <Paragraph type={'white'} level={2}>Перейти к счету ребенка</Paragraph>
-                    </Button>
+                    </Button>}
                     <Button type={'main'} style={'green'} className={'HomePage__button'} onClick={handlerSalary}>
                         <Paragraph type={'white'} level={2}>Получить зарплату</Paragraph>
                     </Button>

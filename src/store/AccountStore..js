@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import api from "../services/axios/api.js";
 import {
-    AUTH_REG,
+    AUTH_REG, BALANCE_CHILD,
     BALANCE_PARENT, HISTORY_ALL, HISTORY_LAST, PARENT_NEWCHILD, PARENT_SALARY
 } from "../constants/endpoints/endpointConst.js";
 
