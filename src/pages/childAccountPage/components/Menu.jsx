@@ -1,4 +1,3 @@
-import {API_URL} from "../../../constants/endpoints/endpointConst.js";
 import {Link} from "react-router-dom";
 import Paragraph from "../../../components/Paragraph/Paragraph.jsx";
 import './Menu.scss';
@@ -16,18 +15,6 @@ const Menu = () => {
         {
             name: "Ограничить категории",
             path: "/categories"
-        },
-        {
-            name: "Отчет. Все транзакции",
-            path: `${API_URL}/reports/transactions/download`
-        },
-        {
-            name: "Отчет. Суммы по магазинам",
-            path: `${API_URL}/reports/shops/download`
-        },
-        {
-            name: "Отчет. Все ограничения",
-            path: `${API_URL}/reports/limits/download`
         },
     ]
 

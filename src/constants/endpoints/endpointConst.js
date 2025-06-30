@@ -1,4 +1,4 @@
-const API_URL = "https://uwu-dewcrew.ru/api";
+const API_URL = "https://uwu-devcrew.ru/api";
 const AUTH_REFRESH = "/auth/refresh";
 const AUTH_LOGIN = "/auth/authorization";
 const AUTH_REG = "/auth/registration";
@@ -16,6 +16,8 @@ const TRANSACTION_TRANSFER_CHILD = '/transaction/transfer';
 const PARENT_SALARY = "/parent/salary";
 const PARENT_NEWCHILD = "/parent/new-child";
 
+const LIMIT = "/limit";
+
 export {
     API_URL,
     AUTH_REFRESH,
@@ -29,5 +31,6 @@ export {
     TRANSACTION_PAY,
     TRANSACTION_TRANSFER_CHILD,
     PARENT_SALARY,
-    PARENT_NEWCHILD
+    PARENT_NEWCHILD,
+    LIMIT
 }
