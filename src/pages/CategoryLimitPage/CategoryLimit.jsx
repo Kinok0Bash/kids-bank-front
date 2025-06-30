@@ -6,7 +6,8 @@ import Title      from '../../components/Title/Title.jsx';
 import Paragraph  from '../../components/Paragraph/Paragraph.jsx';
 import LeftArrow  from '../../assets/icons/Base/LeftArrow.jsx';
 import Button     from '../../components/Button/Button.jsx';
-import Api        from '../../services/axios/api.js';           // обёртка над fetch/axios с токеном внутри
+import Api        from '../../services/axios/api.js';
+import {LIMIT} from "../../constants/endpoints/endpointConst.js";           // обёртка над fetch/axios с токеном внутри
 
 const LimitPage = () => {
     const nav              = useNavigate();
@@ -18,7 +19,7 @@ const LimitPage = () => {
     useEffect(() => {
         (async () => {
             try {
-                const {data} = await Api.get('/api/limit');
+                const {data} = await Api.get(LIMIT);
                 setLimits(data);
             } catch (e) {
                 setError(e.message ?? 'Не удалось получить ограничения');
@@ -37,7 +38,7 @@ const LimitPage = () => {
     /** сохраняем и отскакиваем назад */
     const saveLimits = async () => {
         try {
-            await Api.put('/api/limit', limits);
+            await Api.put(LIMIT, limits);
             nav(-1);                                   // прыжок на экран назад
         } catch (e) {
             setError(e.message ?? 'Не удалось сохранить');
