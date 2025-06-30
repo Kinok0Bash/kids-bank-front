@@ -10,16 +10,17 @@ import Api        from '../../services/axios/api.js';
 import {LIMIT} from "../../constants/endpoints/endpointConst.js";           // обёртка над fetch/axios с токеном внутри
 
 const LimitPage = () => {
-    const nav              = useNavigate();
-    const [limits, setLimits] = useState([]);
+    const nav = useNavigate();
+
+    const [limits, setLimits]   = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError]     = useState(null);
 
-    /** грузим текущее состояние ограничений */
+    // дергаем список ограничений
     useEffect(() => {
         (async () => {
             try {
-                const {data} = await Api.get(LIMIT);
+                const { data } = await Api.get(LIMIT);
                 setLimits(data);
             } catch (e) {
                 setError(e.message ?? 'Не удалось получить ограничения');
@@ -29,46 +30,52 @@ const LimitPage = () => {
         })();
     }, []);
 
-    /** переключаем конкретный чекбокс */
-    const toggleLimit = (id) =>
-        setLimits(prev =>
-            prev.map(l => l.id === id ? {...l, isLimit: !l.isLimit} : l)
-        );
+    const toggle = id =>
+        setLimits(prev => prev.map(l => l.id === id ? { ...l, isLimit: !l.isLimit } : l));
 
-    /** сохраняем и отскакиваем назад */
-    const saveLimits = async () => {
+    const save = async () => {
         try {
             await Api.put(LIMIT, limits);
-            nav(-1);                                   // прыжок на экран назад
+            nav(-1);
         } catch (e) {
-            setError(e.message ?? 'Не удалось сохранить');
+            setError(e.message ?? 'Не удалось сохранить ограничения');
         }
     };
 
-    if (loading)  return <Paragraph level={2}>Загружаем…</Paragraph>;
-    if (error)    return <Paragraph level={2} type="error">{error}</Paragraph>;
+    if (loading) return <Paragraph level={3}>Загрузка…</Paragraph>;
+    if (error)   return <Paragraph level={3} type="error">{error}</Paragraph>;
 
     return (
         <div className="LimitPage">
-            <header className="header LimitPage__header">
-                <span onClick={() => nav(-1)}><LeftArrow/></span>
-                <Paragraph level={2}>Запрещённые категории</Paragraph>
+            {/* HEADER */}
+            <header className="LimitPage__header">
+                <button className="LimitPage__back" onClick={() => nav(-1)}>
+                    <LeftArrow />
+                </button>
+                <Paragraph level={3}>Запрещённые категории</Paragraph>
             </header>
 
+            {/* LIST */}
             <div className="LimitPage__list">
-                {limits.map(({id, name, isLimit}) => (
+                {limits.map(({ id, name, isLimit }) => (
                     <label key={id} className="LimitPage__item">
                         <input
                             type="checkbox"
                             checked={isLimit}
-                            onChange={() => toggleLimit(id)}
+                            onChange={() => toggle(id)}
                         />
                         <Paragraph level={2}>{name}</Paragraph>
                     </label>
                 ))}
             </div>
 
-            <Button type="main" style="dark" className="LimitPage__save" onClick={saveLimits}>
+            {/* SAVE BTN */}
+            <Button
+                type="main"
+                style="dark"
+                className="LimitPage__save"
+                onClick={save}
+            >
                 <Paragraph type="white" level={2}>Сохранить</Paragraph>
             </Button>
         </div>
