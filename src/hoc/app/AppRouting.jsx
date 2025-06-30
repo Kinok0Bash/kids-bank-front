@@ -10,6 +10,7 @@ import OperationResultPage from "../../pages/OperationResultPage/OperationResult
 import ChildAccountPage from "../../pages/childAccountPage/ChildAccountPage.jsx";
 import ChildTransferPage from "../../pages/childTransferPage/ChildTransferPage.jsx";
 import HistoryPage from "../../pages/HistoryPage/HistoryPage.jsx";
+import CategoryLimit from "../../pages/CategoryLimitPage/CategoryLimit.jsx";
 
 const AppRouting = () => {
     return (
@@ -24,6 +25,7 @@ const AppRouting = () => {
                     <Route path={'/childAccount'} element={<ChildAccountPage />}/>
                     <Route path={'/childTransfer'} element={<ChildTransferPage />}/>
                     <Route path={'/history'} element={<HistoryPage />}/>
+                    <Route path={'/categories'} element={<CategoryLimit />}/>
                 </Route>
                 <Route path="/auth/registration" element={<RegistrationPage />}/>
                 <Route path="/auth/login" element={<LoginPage />}/>
