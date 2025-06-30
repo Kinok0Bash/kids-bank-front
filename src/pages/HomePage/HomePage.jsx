@@ -11,6 +11,7 @@ import {useNavigate} from "react-router-dom";
 import LoaderStore from "../../store/LoaderStore.js";
 import Title from "../../components/Title/Title.jsx";
 import RightArrow from "../../assets/icons/Base/RightArrow.jsx";
+
 const HomePage = () => {
     const nav = useNavigate();
     const handlerSalary = async () => {
